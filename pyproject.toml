@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hypotest"
+version = "0.1.0"
+description = "Inference toolkit for frequentist, Bayesian, and survival analyses."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "numpy>=1.26",
+  "pandas>=2.2",
+  "scipy>=1.12",
+  "statsmodels>=0.14",
+  "scikit-learn>=1.4",
+  "pingouin>=0.5.4",
+  "scikit-posthocs>=0.9.0",
+  "lifelines>=0.30",
+  "pymc>=5.16",
+  "arviz>=0.18",
+  "streamlit>=1.35",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.2",
+  "ruff>=0.5",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W"]
